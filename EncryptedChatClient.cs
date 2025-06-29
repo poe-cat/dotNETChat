@@ -19,7 +19,6 @@ class EncryptedChatClient
 
         NetworkStream stream = client.GetStream();
 
-        // Wyślij nick na początek
         byte[] nickBytes = Encrypt(nick);
         await stream.WriteAsync(nickBytes, 0, nickBytes.Length);
 
