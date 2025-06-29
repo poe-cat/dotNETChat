@@ -41,7 +41,6 @@ class EncryptedChatServer
 
         try
         {
-            // 1. Odczytaj nick klienta
             byte[] buffer = new byte[1024];
             int nameBytes = await stream.ReadAsync(buffer, 0, buffer.Length);
             nick = Decrypt(buffer, nameBytes).Trim();
@@ -53,7 +52,6 @@ class EncryptedChatServer
 
             await BroadcastAsync($"** {nick} dołączył do czatu **", client);
 
-            // 2. Inicjalizacja pingowania
             DateTime lastSeen = DateTime.UtcNow;
             System.Timers.Timer pingTimer = new(5000);
             pingTimer.Elapsed += async (_, _) =>
@@ -80,7 +78,6 @@ class EncryptedChatServer
             };
             pingTimer.Start();
 
-            // 3. Odbieranie wiadomości
             while (true)
             {
                 int bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length);
