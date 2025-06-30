@@ -1,6 +1,6 @@
 # Encrypted Chat: Client/Server Chat with encrypted communication
 
-## Project Overview
+## Project overview
 
 This is a simple TCP-based client/server chat system where all communication is encrypted using the AES symmetric encryption algorithm. The application supports multiple clients connected to a single server and enables asynchronous message exchange. Each client sets a nickname, and all messages are broadcast to all connected users. The server periodically checks client availability and disconnects unresponsive clients.
 
@@ -16,7 +16,7 @@ The project consists of two independent console applications:
 - .NET 7.0 or later
 - Visual Studio / Visual Studio Code / .NET CLI
 
-## How to Run
+## How to run
 
 ### 1. Build both projects:
 
@@ -51,7 +51,7 @@ Each client is prompted to enter a nickname after connecting.
 4. When Client A sends a message, Client B sees it, and vice versa.
 5. If a client is closed or unresponsive, the server automatically disconnects it after 10 seconds.
 
-## Encryption Details
+## Encryption details
 
 - **Algorithm**: AES (via `Aes.Create()`, default CBC mode)
 - **Key and IV**: 128-bit, hardcoded on both client and server side (16 UTF-8 bytes each)
